@@ -4,13 +4,12 @@ public class Win {
 
     private static final int WINNER_PLACES = 3;
 
-    public static String controlOfPlayerVictory(char[][] ticTacGameArray, char currentPlayer) {
-        if (isRowWins(ticTacGameArray,currentPlayer) || isColumnWins(ticTacGameArray, currentPlayer)
-                || (isDiagonalStartingInLeftCornerWins(ticTacGameArray,currentPlayer)) || (isDiagonalStartingInRightCornerWins(ticTacGameArray, currentPlayer))){
-            return currentPlayer + " wins";
-        }
-        return currentPlayer + " does not wins";
+    public static boolean isPlayerVictory(char[][] ticTacGameArray, char currentPlayer) {
+        return isRowWins(ticTacGameArray, currentPlayer) || isColumnWins(ticTacGameArray, currentPlayer)
+                || (isDiagonalStartingInLeftCornerWins(ticTacGameArray, currentPlayer)) || (isDiagonalStartingInRightCornerWins(ticTacGameArray, currentPlayer));
+
     }
+
     public static boolean isRowWins(char[][] ticTacGameArray, char currentPlayer) {
         for (char[] chars : ticTacGameArray) {
             int numberOfMoves = 0;
@@ -27,7 +26,7 @@ public class Win {
         }
         return false;
     }
-    
+
     public static boolean isColumnWins(char[][] ticTacGameArray, char currentPlayer) {
         int counter = 0;
         for (int j = 0; j < ticTacGameArray[0].length; j++) {
