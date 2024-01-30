@@ -1,51 +1,38 @@
 package com.github.katerinazakova;
 
 public class GameBoard {
-    private static final int NUMBER_OF_ROW = 3;
-    private static final int NUMBER_OF_COLUMN = 5;
-    protected static final char[][] TIC_TAC_TOE_GAME_ARRAY = new char[NUMBER_OF_ROW][NUMBER_OF_COLUMN];
+    protected static final char[][] GAME_BOARD = new char[3][3];
 
-    public static void printGameBoard() {
-        for (int i = 0; i < 9; i++) {
-            System.out.print('-');
-        }
-        System.out.println();
-
-        for (int i = 0; i < TIC_TAC_TOE_GAME_ARRAY.length; i++) {
-            for (int j = 0; j < TIC_TAC_TOE_GAME_ARRAY[0].length; j++) {
-                System.out.print(TIC_TAC_TOE_GAME_ARRAY[i][j] + " ");
+    public static void printEmptyGameBoard() {
+        printLine(9);
+        for (int i = 0; i < GAME_BOARD.length; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < GAME_BOARD[0].length; j++) {
+                GAME_BOARD[i][j] = '_';
+                System.out.print(GAME_BOARD[i][j] + " ");
             }
-            System.out.println();
+            System.out.println("|");
         }
-        for (int i = 0; i < 9; i++) {
+        printLine(9);
+    }
+
+    public static void printLine(int lengthLine) {
+        for (int i = 0; i < lengthLine; i++) {
             System.out.print('-');
         }
         System.out.println();
     }
 
-
-    public static void printEmptyGameBoard() {
-        for (int i = 0; i < 9; i++) {
-            System.out.print('-');
-        }
-        System.out.println();
-
-        for (int i = 0; i < NUMBER_OF_ROW; i++) {
-            for (int j = 0; j < NUMBER_OF_COLUMN; j++) {
-                if (j == 0 || j == NUMBER_OF_COLUMN - 1) {
-                    TIC_TAC_TOE_GAME_ARRAY[i][j] = '|';
-                } else {
-                    TIC_TAC_TOE_GAME_ARRAY[i][j] = '_';
-                }
-                System.out.print(TIC_TAC_TOE_GAME_ARRAY[i][j] + " ");
+    public static void printActualGameBoard() {
+        printLine(9);
+        for (int i = 0; i < GAME_BOARD.length; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < GAME_BOARD[0].length; j++) {
+                System.out.print(GAME_BOARD[i][j] + " ");
             }
-            System.out.println();
+            System.out.println("|");
         }
-
-        for (int i = 0; i < 9; i++) {
-            System.out.print('-');
-        }
-        System.out.println();
+        printLine(9);
     }
 
 }
