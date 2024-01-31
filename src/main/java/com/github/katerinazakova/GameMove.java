@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static com.github.katerinazakova.GameBoard.GAME_BOARD;
 
-public class GameCells {
+public class GameMove {
     public static void controlOfPlayerMoves(char currentPlayer) {
         try {
             Scanner scanner = new Scanner(System.in);

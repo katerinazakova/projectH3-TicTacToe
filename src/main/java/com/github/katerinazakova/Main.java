@@ -6,7 +6,7 @@ public class Main {
         GameBoard.printEmptyGameBoard();
 
         while (true) {
-            GameCells.controlOfPlayerMoves(currentPlayer);
+            GameMove.controlOfPlayerMoves(currentPlayer);
 
             if (GameAnalysis.isPlayerWinner(currentPlayer)) {
                 System.out.println("Status game: " + currentPlayer + " wins");
