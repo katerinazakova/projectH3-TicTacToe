@@ -1,26 +1,37 @@
 package com.github.katerinazakova;
 
-import static com.github.katerinazakova.GameBoard.TIC_TAC_TOE_GAME_ARRAY;
+import java.util.Scanner;
+
+import static com.github.katerinazakova.GameBoard.GAME_BOARD;
 
 public class GameCells {
+    public static void controlOfPlayerMoves(char currentPlayer) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter coordinates");
+            int row = scanner.nextInt();
+            int column = scanner.nextInt();
+            String statusOfCell = takeCell(row, column, currentPlayer);
 
-    public static void takeCell(int numberOne, int numberTwo, char currentPlayer) {
-        if (TIC_TAC_TOE_GAME_ARRAY[numberTwo - 1][numberOne] == '_') {
-            TIC_TAC_TOE_GAME_ARRAY[numberTwo - 1][numberOne] = currentPlayer;
-            System.out.println("This cell was changed to " + currentPlayer);
-        } else {
-            System.out.println("This cell is occupied! Choose another one!");
-        }
-    }
-
-    public static boolean isOccupiedAllCells() {
-        for (char[] chars : TIC_TAC_TOE_GAME_ARRAY) {
-            for (int j = 0; j < TIC_TAC_TOE_GAME_ARRAY[0].length; j++) {
-                if (chars[j] == '_') {
-                    return false;
-                }
+            if (("This cell was changed to " + currentPlayer).equals(statusOfCell)) {
+                GameBoard.printActualGameBoard();
+            } else {
+                System.out.println("This cell is occupied! Choose another one!");
+                controlOfPlayerMoves(currentPlayer);
             }
+
+        } catch (RuntimeException e) {
+            System.out.println("Enter numbers 1 - 3!");
         }
-        return true;
     }
+
+    public static String takeCell(int row, int column, char currentPlayer) {
+        if (GAME_BOARD[row - 1][column - 1] == '_') {
+            GAME_BOARD[row - 1][column - 1] = currentPlayer;
+            return "This cell was changed to " + currentPlayer;
+        } else {
+            return "This cell is occupied! Choose another one!";
+        }
+    }
+
 }
