@@ -1,5 +1,6 @@
 package com.github.katerinazakova;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static com.github.katerinazakova.GameBoard.GAME_BOARD;
@@ -12,7 +13,6 @@ public class GameMove {
             int row = scanner.nextInt();
             int column = scanner.nextInt();
             String statusOfCell = takeCell(row, column, currentPlayer);
-
             if (("This cell was changed to " + currentPlayer).equals(statusOfCell)) {
                 GameBoard.printActualGameBoard();
             } else {
@@ -20,9 +20,13 @@ public class GameMove {
                 controlOfPlayerMoves(currentPlayer);
             }
 
-        } catch (RuntimeException e) {
+        } catch (InputMismatchException e) {
+            System.out.println("Enter valid format!");
+
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Enter numbers 1 - 3!");
         }
+
     }
 
     public static String takeCell(int row, int column, char currentPlayer) {
