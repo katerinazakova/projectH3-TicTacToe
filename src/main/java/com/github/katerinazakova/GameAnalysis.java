@@ -22,9 +22,9 @@ public class GameAnalysis {
     }
 
     public static boolean isWinningColumn(char currentPlayer) {
-        for (int j = 0; j < GAME_BOARD[0].length; j++) {
-            if (GAME_BOARD[0][j] == currentPlayer && GAME_BOARD[1][j] == currentPlayer
-                    && GAME_BOARD[2][j] == currentPlayer) {
+        for (int column = 0; column < GAME_BOARD[0].length; column++) {
+            if (GAME_BOARD[0][column] == currentPlayer && GAME_BOARD[1][column] == currentPlayer
+                    && GAME_BOARD[2][column] == currentPlayer) {
                 return true;
 
             }
@@ -46,8 +46,8 @@ public class GameAnalysis {
 
     public static boolean isOccupiedAllCells() {
         for (char[] chars : GAME_BOARD) {
-            for (int j = 0; j < GAME_BOARD[0].length; j++) {
-                if (chars[j] == '_') {
+            for (int column = 0; column < GAME_BOARD[0].length; column++) {
+                if (chars[column] == '_') {
                     return false;
                 }
             }
