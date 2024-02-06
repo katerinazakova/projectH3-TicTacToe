@@ -8,7 +8,7 @@ import static com.github.katerinazakova.GameBoard.GAME_BOARD;
 public class GameMoveTest {
 
     @Test
-    void testTakeCell_OccupiedCell() {
+    void givenInputCoordinates_whenTakeCell_thenOutputIsOccupiedCell() {
         //arrange
         int row = 1;
         int column = 1;
@@ -24,7 +24,7 @@ public class GameMoveTest {
     }
 
     @Test
-    void testTakeCell_BookingEmptyCell() {
+    void givenInputCoordinates_whenTakeCell_thenOutputIsChangedCell() {
         //arrange
         int row = 1;
         int column = 1;
