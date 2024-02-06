@@ -1,5 +1,7 @@
 package com.github.katerinazakova;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         char currentPlayer = 'X';
@@ -19,6 +21,7 @@ public class Main {
                 currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
             }
         }
-    }
 
+
+    }
 }
