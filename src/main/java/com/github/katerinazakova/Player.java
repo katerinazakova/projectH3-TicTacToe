@@ -1,6 +1,6 @@
 package com.github.katerinazakova;
 
-public class GameStart {
+public class Player {
     public void startGame(char currentPlayer) {
         GameBoard.printEmptyGameBoard();
 
