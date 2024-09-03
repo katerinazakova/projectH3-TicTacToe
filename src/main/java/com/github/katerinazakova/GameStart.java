@@ -2,8 +2,6 @@ package com.github.katerinazakova;
 
 public class GameStart {
     public void startGame(char currentPlayer) {
-        GameBoard.printEmptyGameBoard();
-
         while (true) {
             GameMove.controlOfPlayerMoves(currentPlayer);
 
